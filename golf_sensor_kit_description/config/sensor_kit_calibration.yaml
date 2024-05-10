@@ -103,4 +103,4 @@ sensor_kit_base_link: #  x y z y p r and x y z qx qy qz qw for ros static transf
     z: -1.70
     roll: -0.0005236
     pitch: -0.0001745
-    yaw: 0.0254818
+    yaw: 0.0054818
