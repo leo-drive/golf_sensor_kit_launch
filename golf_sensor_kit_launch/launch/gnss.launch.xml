@@ -1,0 +1,38 @@
+<launch>
+
+  <arg name="launch_driver" default="true"/>
+  <arg name="coordinate_system" default="1" description="0:UTM, 1:MGRS, 2:PLANE, 3:LocalCartesianWGS84, 4:LocalCartesianUTM"/>
+
+  <group>
+    <push-ros-namespace namespace="gnss"/>
+
+    <!-- Switch topic name -->
+    <let name="navsatfix_topic_name" value="/sensing/gnss/sbg/ros/ekf_nav_sat_fix" />
+
+    <let name="orientation_topic_name" value="/sensing/gnss/sbg/autoware_orientation"/>
+
+    <!-- sbg Driver -->
+
+    <group>
+      <node pkg="sbg_driver" exec="sbg_device" if="$(var launch_driver)">
+        <param from="$(find-pkg-share sbg_driver)/config/example/ellipse_D_default.yaml"/>
+      </node>
+    </group>
+
+    <!-- NavSatFix to MGRS Pose -->
+    <include file="$(find-pkg-share gnss_poser)/launch/gnss_poser.launch.xml">
+      <arg name="input_topic_fix" value="$(var navsatfix_topic_name)"/>
+      <arg name="input_topic_orientation" value="$(var orientation_topic_name)"/>
+
+      <arg name="output_topic_gnss_pose" value="pose"/>
+      <arg name="output_topic_gnss_pose_cov" value="pose_with_covariance"/>
+      <arg name="output_topic_gnss_fixed" value="fixed"/>
+
+      <arg name="coordinate_system" value="$(var coordinate_system)"/>
+      <arg name="use_gnss_ins_orientation" value="true"/>
+      <arg name="height_system" value="0"/>
+      <arg name="gnss_frame" value="GNSS_INS/gnss_ins_link"/>
+      <arg name="gnss_base_frame" value="gnss_ins_base_link"/>
+    </include>
+  </group>
+</launch>
