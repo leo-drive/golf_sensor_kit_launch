@@ -32,7 +32,7 @@
     <push-ros-namespace namespace="camera"/>
     <include file="$(find-pkg-share common_sensor_launch)/launch/camera_node_container.launch.py">
       <arg name="input_image" value="$(var image_1)"/>
-      <arg name="camera_name" value="front"/>
+      <arg name="camera_name" value="front_left"/>
       <arg name="gpu_id" value="$(var gpu_id)"/>
       <arg name="use_intra_process" value="$(var use_intra_process)"/>
       <arg name="use_multithread" value="$(var use_multithread)"/>
@@ -45,7 +45,7 @@
     <push-ros-namespace namespace="camera"/>
     <include file="$(find-pkg-share common_sensor_launch)/launch/camera_node_container.launch.py">
       <arg name="input_image" value="$(var image_2)"/>
-      <arg name="camera_name" value="front_left"/>
+      <arg name="camera_name" value="front"/>
       <arg name="gpu_id" value="$(var gpu_id)"/>
       <arg name="use_intra_process" value="$(var use_intra_process)"/>
       <arg name="use_multithread" value="$(var use_multithread)"/>
@@ -54,7 +54,7 @@
     </include>
   </group>
 
-  <group>
+<!--  <group>
     <push-ros-namespace namespace="camera"/>
     <include file="$(find-pkg-share common_sensor_launch)/launch/camera_node_container.launch.py">
       <arg name="input_image" value="$(var image_3)"/>
@@ -117,5 +117,5 @@
       <arg name="output_topic" value="/perception/object_recognition/detection/rois7"/>
       <arg name="camera_id" value="7"/>
     </include>
-  </group>
+  </group>-->
 </launch>
