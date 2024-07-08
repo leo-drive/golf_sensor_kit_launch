@@ -38,8 +38,8 @@ def launch_setup(context, *args, **kwargs):
             {
                 "input_topics": [
                     "/sensing/lidar/top/pointcloud_before_sync",
-                    # "/sensing/lidar/middle_left/pointcloud_before_sync",
-                    # "/sensing/lidar/middle_right/pointcloud_before_sync",
+                    "/sensing/lidar/middle_left/pointcloud_before_sync",
+                    "/sensing/lidar/middle_right/pointcloud_before_sync",
                     "/sensing/lidar/rear_left/pointcloud_before_sync",
                     "/sensing/lidar/rear_right/pointcloud_before_sync",
                 ],

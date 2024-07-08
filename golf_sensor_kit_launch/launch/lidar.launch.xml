@@ -76,7 +76,7 @@
       </group>
     </group>
 
-<!--    <group>
+    <group>
       <push-ros-namespace namespace="middle_left"/>
       <include file="$(find-pkg-share common_sensor_launch)/launch/velodyne_VLP16.launch.xml">
         <arg name="sensor_frame" value="VLP16_ML"/>
@@ -91,7 +91,7 @@
         <arg name="invalid_regions"
              value="'[[12, 31110, 31495], [0, 3500, 6900], [1, 3400, 6500], [2, 3200, 4600], [3, 3200, 4600], [4, 3000, 4300], [5, 2950, 4050], [6, 3100, 3800], [0, 26000, 32200], [1, 26000, 32200], [2, 26000, 31000], [3, 26000, 30000], [4, 26000, 28000]]'"/>
       </include>
-      &lt;!&ndash;obstacle segmentation&ndash;&gt;
+      <!--obstacle segmentation-->
       <include file="$(find-pkg-share tier4_perception_launch)/launch/obstacle_segmentation/ground_segmentation/ground_segmentation.launch.py">
         <arg name="base_frame" value="base_link"/>
         <arg name="use_intra_process" value="true"/>
@@ -101,7 +101,7 @@
         <arg name="input/pointcloud" value="/sensing/lidar/middle_left/pointcloud_before_sync"/>
         <arg name="obstacle_segmentation_ground_segmentation_param_path" value="$(var obstacle_segmentation_ground_segmentation_param_path)"/>
       </include>
-      &lt;!&ndash;occupancy grid map&ndash;&gt;
+      <!--occupancy grid map-->
       <group>
         <push-ros-namespace namespace="occupancy_grid_map"/>
         <include file="$(find-pkg-share tier4_perception_launch)/launch/occupancy_grid_map/probabilistic_occupancy_grid_map.launch.xml">
@@ -135,7 +135,7 @@
         <arg name="invalid_regions"
              value="'[[0, 28300, 33000], [1, 29100, 33000], [2, 31050, 33000], [3, 31050, 33000], [4, 31050, 33000], [5, 31500, 33000], [6, 32000, 33000], [0, 3800, 9300], [1, 4700, 9000], [2, 5200, 9000], [3, 6600, 9000], [4, 8000, 9000]]'"/>
       </include>
-      &lt;!&ndash;obstacle segmentation&ndash;&gt;
+      <!--obstacle segmentation-->
       <include file="$(find-pkg-share tier4_perception_launch)/launch/obstacle_segmentation/ground_segmentation/ground_segmentation.launch.py">
         <arg name="base_frame" value="base_link"/>
         <arg name="use_intra_process" value="true"/>
@@ -145,7 +145,7 @@
         <arg name="input/pointcloud" value="/sensing/lidar/middle_right/pointcloud_before_sync"/>
         <arg name="obstacle_segmentation_ground_segmentation_param_path" value="$(var obstacle_segmentation_ground_segmentation_param_path)"/>
       </include>
-      &lt;!&ndash;occupancy grid map&ndash;&gt;
+      <!--occupancy grid map-->
       <group>
         <push-ros-namespace namespace="occupancy_grid_map"/>
         <include file="$(find-pkg-share tier4_perception_launch)/launch/occupancy_grid_map/probabilistic_occupancy_grid_map.launch.xml">
@@ -162,7 +162,7 @@
           <arg name="occupancy_grid_map_updater_param_path" value="$(var occupancy_grid_map_updater_param_path)"/>
         </include>
       </group>
-    </group>-->
+    </group>
 
     <group>
       <push-ros-namespace namespace="rear_right"/>
