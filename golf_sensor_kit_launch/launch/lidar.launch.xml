@@ -46,6 +46,7 @@
         <arg name="invalid_regions"
              value="'[[1, 15000, 21000], [2, 15000, 21000], [3, 15000, 21000]]'"/>
       </include>
+
       <!--obstacle segmentation-->
       <push-ros-namespace namespace="obstacle_segmentation"/>
       <include file="$(find-pkg-share tier4_perception_launch)/launch/obstacle_segmentation/ground_segmentation/ground_segmentation.launch.py">

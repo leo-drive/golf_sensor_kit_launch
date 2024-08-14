@@ -36,8 +36,8 @@ def launch_setup(context, *args, **kwargs):
 
     # tensorrt params
     gpu_id = int(LaunchConfiguration("gpu_id").perform(context))
-    calib_image_directory = FindPackageShare("tensorrt_yolox").perform(context) + "/calib_image/"
-    tensorrt_config_path = FindPackageShare('tensorrt_yolox').perform(context) + "/config/yolox_s_plus_opt.param.yaml"
+    calib_image_directory = FindPackageShare("autoware_tensorrt_yolox").perform(context) + "/calib_image/"
+    tensorrt_config_path = FindPackageShare('autoware_tensorrt_yolox').perform(context) + "/config/yolox_s_plus_opt.param.yaml"
     precision = LaunchConfiguration("precision").perform(context)
     data_path = PathJoinSubstitution([EnvironmentVariable('HOME'), 'autoware_data'])
     model_path = PathJoinSubstitution([data_path, 'tensorrt_yolox/'])
@@ -97,9 +97,9 @@ def launch_setup(context, *args, **kwargs):
                 ],
             ),
             ComposableNode(
-                package="tensorrt_yolox",
-                plugin="tensorrt_yolox::TrtYoloXNode",
-                name=["tensorrt_yolox", LaunchConfiguration("camera_id")],
+                package="autoware_tensorrt_yolox",
+                plugin="autoware::tensorrt_yolox::TrtYoloXNode",
+                name=["autoware_tensorrt_yolox", LaunchConfiguration("camera_id")],
                 namespace=["/perception/object_recognition/detection"],
                 remappings=[
                   (
@@ -157,6 +157,7 @@ def launch_setup(context, *args, **kwargs):
                       "precision": precision,  # FP16, FP32, INT8
                       "data_path": data_path,
                       "model_path": model_path.perform(context) + LaunchConfiguration("model_name").perform(context) + ".onnx",
+                      "color_map_path": tensorrt_yaml_param['color_map_path'],
                       "label_path": model_path.perform(context) + "/label.txt",
                       "clip_value": tensorrt_yaml_param['clip_value'],
                       "preprocess_on_gpu": tensorrt_yaml_param['preprocess_on_gpu'],
