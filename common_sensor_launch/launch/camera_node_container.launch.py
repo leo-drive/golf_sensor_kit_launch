@@ -178,6 +178,7 @@ def launch_setup(context, *args, **kwargs):
                       "roi_overlay_segment_label.BICYCLE": True,
                       "roi_overlay_segment_label.ANIMAL": True,
                       "roi_overlay_segment_label.PEDESTRIAN": True,
+                      "gpu_id": gpu_id,
                     }
                 ],
                 extra_arguments=[{"use_intra_process_comms": LaunchConfiguration("use_intra_process")}],

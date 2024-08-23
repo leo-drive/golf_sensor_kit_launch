@@ -25,6 +25,7 @@
       <arg name="use_multithread" value="$(var use_multithread)"/>
       <arg name="output_topic" value="rois0"/>
       <arg name="camera_id" value="0"/>
+      <arg name="gpu_id" value="1"/>
     </include>
   </group>
 
@@ -38,6 +39,7 @@
       <arg name="use_multithread" value="$(var use_multithread)"/>
       <arg name="output_topic" value="/perception/object_recognition/detection/rois1"/>
       <arg name="camera_id" value="1"/>
+      <arg name="gpu_id" value="1"/>
     </include>
   </group>
 
@@ -51,10 +53,11 @@
       <arg name="use_multithread" value="$(var use_multithread)"/>
       <arg name="output_topic" value="/perception/object_recognition/detection/rois2"/>
       <arg name="camera_id" value="2"/>
+      <arg name="gpu_id" value="1"/>
     </include>
   </group>
 
-<!--  <group>
+  <group>
     <push-ros-namespace namespace="camera"/>
     <include file="$(find-pkg-share common_sensor_launch)/launch/camera_node_container.launch.py">
       <arg name="input_image" value="$(var image_3)"/>
@@ -64,6 +67,7 @@
       <arg name="use_multithread" value="$(var use_multithread)"/>
       <arg name="output_topic" value="/perception/object_recognition/detection/rois3"/>
       <arg name="camera_id" value="3"/>
+      <arg name="gpu_id" value="1"/>
     </include>
   </group>
 
@@ -77,6 +81,7 @@
       <arg name="use_multithread" value="$(var use_multithread)"/>
       <arg name="output_topic" value="/perception/object_recognition/detection/rois4"/>
       <arg name="camera_id" value="4"/>
+      <arg name="gpu_id" value="2"/>
     </include>
   </group>
 
@@ -90,6 +95,7 @@
       <arg name="use_multithread" value="$(var use_multithread)"/>
       <arg name="output_topic" value="/perception/object_recognition/detection/rois5"/>
       <arg name="camera_id" value="5"/>
+      <arg name="gpu_id" value="2"/>
     </include>
   </group>
 
@@ -103,6 +109,7 @@
       <arg name="use_multithread" value="$(var use_multithread)"/>
       <arg name="output_topic" value="/perception/object_recognition/detection/rois6"/>
       <arg name="camera_id" value="6"/>
+      <arg name="gpu_id" value="2"/>
     </include>
   </group>
 
@@ -116,6 +123,7 @@
       <arg name="use_multithread" value="$(var use_multithread)"/>
       <arg name="output_topic" value="/perception/object_recognition/detection/rois7"/>
       <arg name="camera_id" value="7"/>
+      <arg name="gpu_id" value="2"/>
     </include>
-  </group>-->
+  </group>
 </launch>
